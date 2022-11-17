@@ -55,7 +55,7 @@ public class ClientController implements Runnable {
     }
 
     private String loadPhoneNumberFromUser() {
-        System.out.print("Enter your username for the group chat: ");
+        System.out.print("Enter your username to join app: ");
         return scanner.nextLine();
     }
 
