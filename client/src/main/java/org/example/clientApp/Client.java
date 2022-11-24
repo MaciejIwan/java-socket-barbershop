@@ -2,10 +2,10 @@ package org.example.clientApp;
 
 import lombok.Getter;
 import lombok.Setter;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.example.server.message.Message;
 import org.example.server.message.MessageType;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.io.IOException;
 import java.io.ObjectInputStream;
@@ -76,29 +76,11 @@ public class Client {
 
 
     public void closeEverything() {
-
-
-        if (objectOutputStream != null) {
-            try {
-                objectOutputStream.close();
-            } catch (IOException e) {
-            }
+        try {
+            socket.close();
+        } catch (IOException e) {
+            logger.error(e.getMessage());
         }
-
-        if (objectInputStream != null) {
-            try {
-                objectInputStream.close();
-            } catch (IOException e) {
-            }
-        }
-
-        if (socket != null) {
-            try {
-                socket.close();
-            } catch (IOException e) {
-            }
-        }
-
     }
 
 
